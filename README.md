@@ -1,4 +1,4 @@
-# JavaScript coding question
+# JavaScript coding questions
 
 ### **`Reverse array`**
 
