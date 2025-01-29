@@ -1,4 +1,4 @@
-# JavaScript coding questions
+# JavaScript coding question
 
 ### **`Reverse array`**
 
@@ -114,7 +114,7 @@ fizz
 11
 buzz
 13
-14**
+14...**
 ```
 
 ### `Check the element present in array`
@@ -376,4 +376,201 @@ return nonRepeateArr;
 }
 
 console.log(checkRepeatedArray([1,3,44,5,3,22, 22]))
+```
+
+### **`Second largest Value`**
+
+```jsx
+
+const arr=[1,2,534,666,52,58,99]
+const secondLargetValue = (arr)=>{
+    let largestValue =-Infinity;
+    let secondLargest = -Infinity;
+    
+    for(let i=0; i<=arr.length -1 ; i++){
+        if(arr[i]>largestValue){
+            secondLargest= largestValue;
+            largestValue= arr[i];
+            
+        }
+        else if(arr[i]> secondLargest && arr[i] !==largestValue){
+            secondLargest= arr[i];
+        }
+    }
+    return secondLargest;
+}
+console.log(secondLargetValue(arr))
+```
+
+### Prime Number
+
+```jsx
+
+//prime nubmer 
+const numbers = 23;
+
+const primeNumber = (numbers) => {
+    if (numbers <= 1)
+        return false;
+    if (numbers === 2)
+        return true;
+    if (numbers % 2 === 0)
+        return false;
+
+    const sqrtNum = Math.sqrt(numbers);
+    for (let i = 3; i <= sqrtNum; i++) {
+
+        if (numbers % i === 0) {
+            return false
+        }
+
+    }
+    return true;
+
+}
+console.log(primeNumber(numbers))
+```
+
+### **`Palindrome`**
+
+```jsx
+
+const str ="777777 777777"
+const isPalindrome =(str)=>{
+    const reverseString=(str)=>{
+        let reverseStr = "";
+        for(let i=str.length-1; i>=0; i--){
+            reverseStr +=str[i];
+        }
+        return reverseStr;
+    }
+  return str===reverseString(str)
+}
+console.log(isPalindrome(str))
+```
+
+**`Bubble Sort`** 
+
+```jsx
+function bubbleSort(arr) {
+ const n = arr.length;
+ 
+ for(let i =0; i <= n -1; i ++ ){
+     for(let j=0; j<= n-i-1; j++){
+         if(arr[j]> arr[j+1]){
+             //swap 
+             let temp = arr[j];
+             arr[j]= arr[j+1];
+             arr[j+1]= temp;
+         }
+     }
+ }
+ return arr;
+}
+
+console.log(bubbleSort([2,5,2345,432,234]))
+```
+
+**`factorial`**
+
+```jsx
+const factorial =(n)=>{
+if (n===0 || n===1)
+return 0;
+
+return n* factorial(n-1);
+
+}
+console.log(factorial(4))
+
+// other method
+const factorial =(n)=>{
+	 let result = 1;
+	 for(let i=2; i<=n; i++){
+			 result *=i;
+	 }
+	 return result;
+}
+console.log(factorial(5))
+```
+
+**`ArmStrong Numbers`**
+
+```jsx
+/// armstrong number
+
+const isArmStrongNumber =(num)=>{
+    let numb = num.toString();
+    const power = numb.length;
+    let sum=0;
+    for(let i =0; i<=numb.length-1; i++){
+        const digit = parseInt(numb[i]);
+        sum+=Math.pow(digit, power)
+        
+    }
+        if(sum === num){
+            return true
+        }else {
+          return false;
+        }
+    }
+console.log(isArmStrongNumber(153))
+```
+
+**`Fibonacci Series`**
+
+```jsx
+const fabonacciSeries=(n)=>{
+const fib=[0,1];
+for(let i= 2; i<n; i++){
+	fib.push(fib[i-1] + fib[i-2]);
+}
+return fib;
+}
+console.log(fabonacciSeries(8))
+```
+
+**`Count Vowel`**
+
+```jsx
+const countVowel =(str)=>{
+let count =0;
+for(let i=0; i<str.length; i++){
+		if("aeiou".includes(str[i])){
+			count+=1;
+		}
+}
+return count;
+}
+console.log(countVowel("Ambuj");
+
+```
+
+**`Check Anagram`** 
+
+```jsx
+
+const checkAnagram=(str1, str2)=>{
+    str1= str1.toLowerCase();
+    str2 = str2.toLowerCase();
+    if(str1.length !== str2.length)
+    {
+        return false
+    }
+    let count1 ={}; let count2 = {};
+    
+    for(let i = 0; i<str1.length; i++){
+        count1[str1[i]]= (count1[str1[i]] || 0 +1);
+        count2[str2[i]]= (count2[str2[i]] ||0 + 1);
+    }
+    console.log(count1, count2)
+    for(let char in count1){
+       if(count1[char] !== count2[char]){
+           return false;
+       }
+    }
+    return true;
+   
+}
+console.log(checkAnagram("Ambuj", "Jabum"))
 ```
